@@ -1,7 +1,136 @@
 <html>
 <head>
     <title>Daletris</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        html {
+          background: url("dale1.jpg") no-repeat center center fixed;
+          background-size: cover;
+        }
+        
+        body {
+          color: #fff;
+          font-family: sans-serif;
+          font-size: 1.2em;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: stretch;
+          height: 100vh; /* Full height viewport */
+        }
+        
+        #score {
+          font-size: 50px;
+          font-weight: bold;
+          color: rgb(0, 0, 0);
+          padding: 0px;
+          margin-bottom: 5px;
+          border-bottom: 1px solid gold;
+        }
+        
+        a:link {
+          color: goldenrod;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:visited {
+          color: goldenrod;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:hover {
+          color: darkgoldenrod;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        a:active {
+          color: yellow;
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        
+        /* Grid Layout (default = desktop landscape) */
+        .layout {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr; /* Left | Game | Right */
+          width: 100%;
+          max-width: 1400px;
+          height: 100%;
+        }
+        
+        /* Left + Right Sidebars */
+        .sidebar {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          color: white;
+        }
+        
+        .sidebar.left {
+          border-right: 2px solid rgba(255, 215, 0, 0.6);
+        }
+        
+        .sidebar.right {
+          border-left: 2px solid rgba(255, 215, 0, 0.6);
+        }
+        
+        /* Center Game Area */
+        .game {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        /* Tetris Canvas */
+        canvas {
+          border: solid .3em #8888;
+          height: 100%; /* Full available height */
+          max-height: 90vh; /* Keep a little margin */
+        }
+        
+        /* Controls */
+        .controls {
+          font-size: 50px;
+          font-weight: bold;
+          color: rgb(0, 0, 0);
+          padding: 0px;
+          margin-bottom: 5px;
+          border-bottom: 1px solid gold;
+        }
+        
+        /* -------- MOBILE LAYOUT -------- */
+        @media (max-width: 768px) {
+          .layout {
+            display: flex;
+            flex-direction: column; /* Stack vertically */
+            height: 100vh;
+          }
+        
+          .game {
+            order: 1; /* Game at top */
+            flex: 1 0 auto;
+          }
+        
+          .sidebar.left {
+            order: 2; /* Left sidebar under game */
+            border-right: none;
+            border-top: 2px solid rgba(255, 215, 0, 0.6);
+          }
+        
+          .sidebar.right {
+            order: 3; /* Right sidebar at bottom */
+            border-left: none;
+            border-top: 2px solid rgba(255, 215, 0, 0.6);
+          }
+        
+          canvas {
+            width: 100%;    /* Use full width */
+            height: 100vh;  /* Full screen height */
+            max-height: none;
+          }
+        }
+    </style>
 </head>
 <body>
   <div class="layout">
