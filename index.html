@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Daletris</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- Left side -->
+    <aside class="sidebar left">
+      <h1><b><i>DALETRIS</i></b></h1>
+      <h2>Brought to you by <br> <b style="color:red;">HOT</b><b style="color:blue;">COLD</b><b>VOTE</b></h2>
+      <p>The best thing since <b style="color:red;">HOT</b><b style="color:blue;">COLD</b><b>VOTE</b></p>
+      <p>Check it out at <br> <a href="https://hotcoldvote.github.io/">hotcoldvote.github.io</a></p>
+    </aside>
+
+    <!-- Middle (Game) -->
+    <main class="game">
+      <div class="controls">Score: <span id="score"></span></div>
+      <canvas id="tetris" width="240" height="400"></canvas>
+    </main>
+
+    <!-- Right side -->
+    <aside class="sidebar right">
+      <h2 id="highscore">High Score: 0</h2>
+      <h2>Leaderboard</h2>
+      <p>Coming soon...</p>
+    </aside>
+  </div>
+
+  <script src="tetris.js"></script>
+</body>
+</html>
