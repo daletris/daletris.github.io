@@ -44,7 +44,7 @@ a:active {
   text-decoration: underline;
 }
 
-/* Grid Layout */
+/* Grid Layout (default = desktop landscape) */
 .layout {
   display: grid;
   grid-template-columns: 1fr auto 1fr; /* Left | Game | Right */
@@ -93,4 +93,36 @@ canvas {
   padding: 0px;
   margin-bottom: 5px;
   border-bottom: 1px solid gold;
+}
+
+/* -------- MOBILE LAYOUT -------- */
+@media (max-width: 768px) {
+  .layout {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    height: 100vh;
+  }
+
+  .game {
+    order: 1; /* Game at top */
+    flex: 1 0 auto;
+  }
+
+  .sidebar.left {
+    order: 2; /* Left sidebar under game */
+    border-right: none;
+    border-top: 2px solid rgba(255, 215, 0, 0.6);
+  }
+
+  .sidebar.right {
+    order: 3; /* Right sidebar at bottom */
+    border-left: none;
+    border-top: 2px solid rgba(255, 215, 0, 0.6);
+  }
+
+  canvas {
+    width: 100%;    /* Use full width */
+    height: 100vh;  /* Full screen height */
+    max-height: none;
+  }
 }
