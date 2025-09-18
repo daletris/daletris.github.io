@@ -1,4 +1,4 @@
-/* WebSocket */
+/* websocket */
 
 const WS_URL = "wss://daletrisserver.onrender.com"; 
 
