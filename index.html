@@ -15,7 +15,7 @@
           display: flex;
           justify-content: center;
           align-items: stretch;
-          height: 100vh; /* Full height viewport */
+          height: 100vh;
         }
         
         #score {
@@ -48,16 +48,14 @@
           text-decoration: underline;
         }
         
-        /* Grid Layout (default = desktop landscape) */
         .layout {
           display: grid;
-          grid-template-columns: 1fr auto 1fr; /* Left | Game | Right */
+          grid-template-columns: 1fr auto 1fr; /* left | game | right */
           width: 100%;
           max-width: 1400px;
           height: 100%;
         }
         
-        /* Left + Right Sidebars */
         .sidebar {
           padding: 20px;
           display: flex;
@@ -74,7 +72,6 @@
           border-left: 2px solid rgba(255, 215, 0, 0.6);
         }
         
-        /* Center Game Area */
         .game {
           display: flex;
           flex-direction: column;
@@ -82,14 +79,12 @@
           justify-content: center;
         }
         
-        /* Tetris Canvas */
         canvas {
           border: solid .3em #8888;
-          height: 100%; /* Full available height */
-          max-height: 90vh; /* Keep a little margin */
+          height: 100%;
+          max-height: 90vh;
         }
         
-        /* Controls */
         .controls {
           font-size: 50px;
           font-weight: bold;
@@ -99,34 +94,34 @@
           border-bottom: 1px solid gold;
         }
         
-        /* -------- MOBILE LAYOUT -------- */
+        /* mobile */
         @media (max-aspect-ratio: 1/1) {
           .layout {
             display: flex;
-            flex-direction: column; /* Stack vertically */
+            flex-direction: column; 
             height: 100vh;
           }
         
           .game {
-            order: 1; /* Game at top */
+            order: 1; /* game at top */
             flex: 1 0 auto;
           }
         
           .sidebar.left {
-            order: 2; /* Left sidebar under game */
+            order: 2; /* left sidebar under game */
             border-right: none;
             border-top: 2px solid rgba(255, 215, 0, 0.6);
           }
         
           .sidebar.right {
-            order: 3; /* Right sidebar at bottom */
+            order: 3; /* right sidebar at bottom */
             border-left: none;
             border-top: 2px solid rgba(255, 215, 0, 0.6);
           }
         
           canvas {
-            width: 100%;    /* Use full width */
-            height: 100vh;  /* Full screen height */
+            width: 100%;
+            height: 100vh;
             max-height: none;
           }
         }
@@ -134,7 +129,7 @@
 </head>
 <body>
   <div class="layout">
-    <!-- Left side -->
+
     <aside class="sidebar left">
       <h1><b><i>DALETRIS</i></b></h1>
       <h2>Brought to you by <br> <b style="color:red;">HOT</b><b style="color:blue;">COLD</b><b>VOTE</b></h2>
@@ -142,20 +137,24 @@
       <p>Check it out at <br> <a href="https://hotcoldvote.github.io/">hotcoldvote.github.io</a></p>
     </aside>
 
-    <!-- Middle (Game) -->
     <main class="game">
       <div class="controls">Score: <span id="score"></span></div>
       <canvas id="tetris" width="240" height="400"></canvas>
     </main>
 
-    <!-- Right side -->
     <aside class="sidebar right">
       <h2 id="highscore">High Score: 0</h2>
       <h2>Leaderboard</h2>
-      <p>Coming soon...</p>
+      <div id="leaderboard-list">Loading leaderboard...</div>
+      <input id="clickMe" type="button" value="Change Name" onclick="changePlayerName();" />
     </aside>
+    
+    <div id="ws-loading" style="
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+      background:rgba(0,0,0,0.8); color:white; font-size:20px; z-index:9999;">
+      Connecting to leaderboard...
+    </div>
   </div>
-
   <script src="tetris.js"></script>
 </body>
 </html>
