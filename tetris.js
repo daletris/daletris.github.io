@@ -223,19 +223,19 @@ function playerRotate(dir) {
 }
 
 let dropCounter = 0;
-let dropInterval = 20;
+let dropInterval = 1000;
 
 let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
-    if((player.score*10)<900) {
+    if((player.score*10)<960) {
         dropInterval -= (player.score*10);
     }
     else{
-        dropInterval = 100;
+        dropInterval = 40;
     }
     dropCounter += deltaTime;
-    if ((dropCounter+incSpeed) > dropInterval) {
+    if ((dropCounter) > dropInterval) {
         playerDrop();
     }
 
