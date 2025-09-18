@@ -223,17 +223,16 @@ function playerRotate(dir) {
 }
 
 let dropCounter = 0;
-let dropInterval = 1000;
-let incSpeed = 0;
+let dropInterval = 20;
 
 let lastTime = 0;
 function update(time = 0) {
     const deltaTime = time - lastTime;
-    if((player.score*2)<800) {
-        incSpeed = player.score;
+    if((player.score*10)<900) {
+        dropInterval -= (player.score*10);
     }
     else{
-        incSpeed = 800;
+        dropInterval = 100;
     }
     dropCounter += deltaTime;
     if ((dropCounter+incSpeed) > dropInterval) {
@@ -269,8 +268,11 @@ document.addEventListener('keydown', event => {
         case "ArrowDown":
             playerDrop();
             break;
-        case "Space":
+        case "KeyQ":
             playerRotate(-1);
+            break;
+        case "KeyE":
+            playerRotate(1);
             break;
     }
 });
