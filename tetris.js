@@ -12,7 +12,7 @@ let wsConnected = false;
 function getPlayerName() {
     let name = localStorage.getItem('daletrisPlayerName');
     if (name && name.trim()) return name;
-    name = prompt("Enter a name for the leaderboard (this will be saved locally):", "Player");
+    name = prompt("Enter a name for the leaderboard (THIS IS PERMANENT):", "Player");
     if (!name || !name.trim()) name = "Player";
     name = name.trim().slice(0, 30);
     localStorage.setItem('daletrisPlayerName', name);
