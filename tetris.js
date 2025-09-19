@@ -19,15 +19,6 @@ function getPlayerName() {
     return name;
 }
 
-function changePlayerName() {
-    let name = localStorage.getItem('daletrisPlayerName');
-    name = prompt("Enter a new name for the leaderboard (this will be saved locally):", "Player");
-    if (!name || !name.trim()) name = "Player";
-    name = name.trim().slice(0, 30);
-    localStorage.setItem('daletrisPlayerName', name);
-    return name;
-}
-
 const playerName = getPlayerName();
 
 function connectWS() {
@@ -143,7 +134,7 @@ function clearRow() {
         arena.unshift(row);
         ++y;
         player.score += rowCount * 10;
-        rowCount *= 2;
+        rowCount += 1;
 
         sendRowCleared(); //leaderboard
         updateScore();
